@@ -9,7 +9,7 @@ import { productContext } from "../Utils/Context";
 const Home = () => {
   const [products] = useContext(productContext);
 
-  console.log(products);
+  // console.log(products);
 
   return products ? (
     <>
