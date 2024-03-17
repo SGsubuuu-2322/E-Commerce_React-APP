@@ -10,7 +10,7 @@ const Context = ({ children }) => {
 
   const getProducts = async () => {
     try {
-      const data = await axios("/products");
+      const { data } = await axios("/products");
       setProducts(data);
     } catch (err) {
       console.log(err);
