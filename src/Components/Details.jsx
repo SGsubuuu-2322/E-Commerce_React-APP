@@ -23,9 +23,9 @@ const Details = () => {
   }, []);
 
   return product ? (
-    <div className="w-[70%] p-[10%] flex justify-between items-center h-full m-auto">
+    <div className="w-[80%] p-[10%] flex justify-between items-center h-full m-auto gap-10">
       <img
-        className="h-[90%] w-[40%] object-contain"
+        className="h-[100%] w-[40%] object-contain"
         src={`${product.image}`}
         alt="product-image"
       />
