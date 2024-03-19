@@ -18,7 +18,7 @@ const Home = () => {
         {products.map((p, i) => (
           <Link
             key={i}
-            to={`/details/1${p.id}`}
+            to={`/details/${p.id}`}
             className="card mr-3 mb-3 p-3 border shadow rounded w-[18%] h-[30vh] flex flex-col justify-center items-center"
           >
             <div
