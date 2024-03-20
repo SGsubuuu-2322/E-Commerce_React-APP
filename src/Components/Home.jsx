@@ -15,19 +15,22 @@ const Home = () => {
   const category = decodeURIComponent(search.split("=")[1]);
   // console.log(category);
 
-  const getProductsCategory = async () => {
-    try {
-      const { data } = await axios.get(`/products/category/${category}`);
-      setFilteredProducts(data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const getProductsCategory = async () => {
+  //   try {
+  //     const { data } = await axios.get(`/products/category/${category}`);
+  //     setFilteredProducts(data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   useEffect(() => {
     if (!filteredProducts || category === "undefined")
       setFilteredProducts(products);
-    if (category !== "undefined") getProductsCategory();
+    if (category !== "undefined") {
+      // getProductsCategory()
+      setFilteredProducts(products.filter((p) => p.category == category));
+    }
   }, [category, products]);
 
   // console.log(filteredProducts);
