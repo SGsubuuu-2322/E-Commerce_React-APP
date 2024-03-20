@@ -3,8 +3,10 @@
 import { useContext, useState } from "react";
 import { productContext } from "../Utils/Context";
 import { nanoid } from "nanoid";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
+  const Navigate = useNavigate();
   const [products, setProducts] = useContext(productContext);
 
   const [title, setTitle] = useState("");
@@ -36,7 +38,9 @@ const Create = () => {
       desc,
     };
 
-    setProducts([...products, newProduct]);
+    setProducts((prev) => [...prev, newProduct]);
+    localStorage.setItem("product", JSON.stringify([...products, newProduct]));
+    Navigate("/");
     // console.log(newProduct);
   };
 
