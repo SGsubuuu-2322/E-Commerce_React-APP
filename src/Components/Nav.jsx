@@ -12,6 +12,14 @@ const Nav = () => {
   distinctCategory = [...new Set(distinctCategory)];
   // console.log(distinctCategory);
 
+  const color = () => {
+    return `rgba(${(Math.random() * 255).toFixed()}, ${(
+      Math.random() * 255
+    ).toFixed()}, ${(Math.random() * 255).toFixed()}, 0.4)`;
+  };
+
+  // console.log(color());
+
   return (
     <nav className="h-full w-[15%] flex flex-col items-center bg-zinc-50 pt-5">
       <a
@@ -30,7 +38,10 @@ const Nav = () => {
               key={index}
               className="flex items-center mb-3"
             >
-              <span className="w-[15px] h-[15px] mr-2 bg-blue-100 rounded-full"></span>
+              <span
+                style={{ backgroundColor: color() }}
+                className="w-[15px] h-[15px] mr-2 bg-blue-100 rounded-full"
+              ></span>
               {item}
             </Link>
           );
