@@ -21,6 +21,8 @@ const Context = ({ children }) => {
     getProducts();
   }, []);
 
+  // console.log(products);
+
   return (
     <productContext.Provider value={[products, setProducts]}>
       {children}

@@ -1,8 +1,12 @@
 // import React from 'react'
 
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { productContext } from "../Utils/Context";
+import { nanoid } from "nanoid";
 
 const Create = () => {
+  const [products, setProducts] = useContext(productContext);
+
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [category, setCategory] = useState("");
@@ -12,7 +16,19 @@ const Create = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (
+      title.trim() < 5 ||
+      image.trim() < 5 ||
+      category.trim() < 5 ||
+      price.trim() < 1 ||
+      desc.trim() < 5
+    ) {
+      alert("Each and every field must have 4 characters...");
+      return;
+    }
+
     const newProduct = {
+      id: nanoid(),
       title,
       image,
       category,
@@ -20,6 +36,7 @@ const Create = () => {
       desc,
     };
 
+    setProducts([...products, newProduct]);
     // console.log(newProduct);
   };
 
