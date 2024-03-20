@@ -1,12 +1,13 @@
 // import React from 'react'
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 // import axios from "../Utils/Axios";
 import { useContext, useEffect, useState } from "react";
 import Loading from "./Loading";
 import { productContext } from "../Utils/Context";
 
 const Details = () => {
-  const [products] = useContext(productContext);
+  const Navigate = useNavigate();
+  const [products, setProducts] = useContext(productContext);
   const [product, setProduct] = useState(null);
   const { id } = useParams();
 
@@ -19,6 +20,14 @@ const Details = () => {
   //     console.log(err);
   //   }
   // };
+
+  const handleDeletion = (id) => {
+    const filteredProducts = products.filter((p) => p.id != id);
+
+    setProducts(filteredProducts);
+    localStorage.setItem("products", JSON.stringify(filteredProducts));
+    Navigate("/");
+  };
 
   useEffect(() => {
     if (!product) {
@@ -42,9 +51,12 @@ const Details = () => {
         <Link className="px-5 py-2 rounded border border-blue-300 text-blue-300 mr-5">
           Edit
         </Link>
-        <Link className="px-5 py-2 rounded border border-red-300 text-red-300 ">
+        <button
+          onClick={() => handleDeletion(product.id)}
+          className="px-5 py-2 rounded border border-red-300 text-red-300 "
+        >
           Delete
-        </Link>
+        </button>
       </div>
     </div>
   ) : (
