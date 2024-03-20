@@ -39,7 +39,7 @@ const Create = () => {
     };
 
     setProducts((prev) => [...prev, newProduct]);
-    localStorage.setItem("product", JSON.stringify([...products, newProduct]));
+    localStorage.setItem("products", JSON.stringify([...products, newProduct]));
     Navigate("/");
     // console.log(newProduct);
   };
