@@ -48,7 +48,10 @@ const Details = () => {
         <h3 className="text-zinc-400 my-3">{product.category}</h3>
         <h2 className="text-red-300 mb-2">${product.price}</h2>
         <p className="mb-[5%]">{product.description}</p>
-        <Link className="px-5 py-2 rounded border border-blue-300 text-blue-300 mr-5">
+        <Link
+          to={`/edit/${product.id}`}
+          className="px-5 py-2 rounded border border-blue-300 text-blue-300 mr-5"
+        >
           Edit
         </Link>
         <button
