@@ -13,7 +13,7 @@ const Create = () => {
   const [image, setImage] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
-  const [desc, setDesc] = useState("");
+  const [description, setDesc] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,7 +23,7 @@ const Create = () => {
       image.trim() < 5 ||
       category.trim() < 5 ||
       price.trim() < 1 ||
-      desc.trim() < 5
+      description.trim() < 5
     ) {
       alert("Each and every field must have 4 characters...");
       return;
@@ -35,7 +35,7 @@ const Create = () => {
       image,
       category,
       price,
-      desc,
+      description,
     };
 
     setProducts((prev) => [...prev, newProduct]);
@@ -86,7 +86,7 @@ const Create = () => {
         rows="10"
         placeholder="Enter product description here..."
         className="text-1xl bg-zinc-200 rounded p-3 w-1/2 mb-3"
-        value={desc}
+        value={description}
         onChange={(e) => setDesc(e.target.value)}
       />
 

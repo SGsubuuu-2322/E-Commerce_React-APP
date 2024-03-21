@@ -5,7 +5,7 @@ import Nav from "./Nav";
 import { useContext, useEffect, useState } from "react";
 import Loading from "./Loading";
 import { productContext } from "../Utils/Context";
-import axios from "../Utils/Axios";
+// import axios from "../Utils/Axios";
 
 const Home = () => {
   const [products] = useContext(productContext);
