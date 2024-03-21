@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import Loading from "./Loading";
 import { productContext } from "../Utils/Context";
+import { toast } from "react-toastify";
 
 const Details = () => {
   const Navigate = useNavigate();
@@ -26,6 +27,7 @@ const Details = () => {
 
     setProducts(filteredProducts);
     localStorage.setItem("products", JSON.stringify(filteredProducts));
+    toast.success("Product deleted successfully...");
     Navigate("/");
   };
 
